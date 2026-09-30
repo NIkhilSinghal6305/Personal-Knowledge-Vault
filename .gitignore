@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.env
+backend/database/*.db
+backend/models/qwen/*.gguf
+backend/knowledge_base/documents/*
+backend/knowledge_base/embeddings/*
+backend/knowledge_base/metadata/*
+!**/.gitkeep

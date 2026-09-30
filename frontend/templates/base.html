@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Vault{% endblock %} · Personal Knowledge Vault</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="{{ 'app' if g.user else 'auth' }}">
+{% if g.user %}
+<aside class="sidebar">
+  <a class="brand" href="/dashboard">PERSONAL<br>KNOWLEDGE<br>VAULT</a>
+  <nav>
+    {% for href, name in [('/dashboard','Dashboard'),('/knowledge-base','Knowledge Base'),('/chat','Chat'),('/documents','Documents'),('/settings','Settings')] %}
+    <a class="nav {{ 'active' if request.path == href }}" href="{{ href }}">{{ name }}</a>
+    {% endfor %}
+  </nav>
+  <a class="nav" href="/logout">Logout</a>
+</aside>
+{% endif %}
+<main>{% block content %}{% endblock %}</main>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

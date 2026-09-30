@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Chat{% endblock %}
+{% block content %}
+<div class="chat" data-conversation="{{ conversation_id or '' }}">
+  <div class="row between" style="margin-top:0"><h1 style="margin:0">Knowledge Vault AI</h1>
+    <div class="toggle"><button class="btn" id="m-kb" data-mode="knowledge_base">Knowledge Base</button><button class="btn secondary" id="m-gen" data-mode="general">General AI</button></div></div>
+  <div class="messages" id="messages"><p class="muted" id="empty">Ask anything about your knowledge. Knowledge Base mode answers only from your documents.</p></div>
+  <form class="composer" id="form"><textarea id="input" rows="2" placeholder="Ask anything about your knowledge..." required></textarea><button class="btn" id="send" type="submit">Send</button></form>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/chat.js') }}"></script>{% endblock %}

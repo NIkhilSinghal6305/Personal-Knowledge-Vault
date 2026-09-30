@@ -1,33 +1,27 @@
-# FastAPI & Server
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-python-multipart==0.0.6
+# Flask
+Flask>=3.1,<4
+Werkzeug>=3.1,<4
+gunicorn>=22
 
-# Database
-sqlalchemy==2.0.23
-aiosqlite==0.19.0
+# Local Qwen / llama.cpp
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python>=0.3.35,<0.4
+huggingface-hub>=0.30,<2
 
-# Authentication
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-bcrypt==4.0.1
+# RAG / Semantic Search
+sentence-transformers>=4,<7
+numpy>=2,<3
 
 # Document Processing
-PyPDF2==3.0.1
-python-docx==1.1.0
+pypdf>=5,<7
+python-docx>=1.1,<2
+reportlab>=4,<6
 
-# AI & Embeddings
-langchain==0.1.0
-langchain-google-genai==0.0.6
-langchain-community==0.0.9
-google-generativeai==0.3.2
-sentence-transformers==2.2.2
-torch>=2.0.0
+# Environment
+python-dotenv>=1.0
 
-# Vector Database
-chromadb==0.4.22
+# Testing
+pytest>=8,<10
 
-# Utilities
-python-dotenv==1.0.0
-pydantic==2.5.3
-pydantic-settings==2.1.0
+# Vector Search
+faiss-cpu

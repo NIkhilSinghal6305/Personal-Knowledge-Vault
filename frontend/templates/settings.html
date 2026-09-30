@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<h1>Settings</h1>
+<h2>Account</h2><p>{{ g.user['name'] }} · <span class="muted">{{ g.user['email'] }}</span></p>
+<h2>Configuration <small>(set in .env)</small></h2>
+<table>{% for k, v in info.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}</table>
+<h2>Index</h2>
+<p class="muted">Re-embed every stored chunk. Use this after changing the embedding model.</p>
+<button class="btn secondary" id="rebuild">Rebuild index</button> <span id="rb-status" class="muted"></span>
+{% endblock %}
+{% block scripts %}<script>
+document.getElementById("rebuild").onclick=async()=>{const s=document.getElementById("rb-status");s.textContent="Generating embeddings...";
+try{const d=await api("/api/documents/rebuild",{method:"POST"});s.textContent="Complete. "+d.chunks+" chunks indexed."}catch(e){s.textContent=e.message}};
+</script>{% endblock %}

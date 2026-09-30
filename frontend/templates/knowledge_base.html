@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Knowledge Base{% endblock %}
+{% block content %}
+<div class="row between"><h1>{% block heading %}Knowledge Base{% endblock %}</h1>
+<button class="btn" id="choose">Upload Document</button></div>
+<div class="drop" id="drop"><b>Upload documents</b><br>Drag &amp; drop files here<br><span class="muted">or</span><br>
+<button class="btn secondary" id="choose2">Choose Files</button><br><small>Supported: PDF, DOCX, TXT</small></div>
+<input type="file" id="file" accept=".pdf,.docx,.txt" multiple hidden>
+<p id="status" class="muted" aria-live="polite"></p>
+<form id="search-form" class="row"><input type="search" id="q" placeholder="Search Knowledge Base..."><button class="btn secondary" type="submit">Search</button></form>
+<p id="scope" class="muted" hidden></p>
+<div id="results"></div>
+<div class="table-wrap"><table><thead><tr><th>Document</th><th>Type</th><th>Chunks</th><th>Uploaded</th><th>Status</th><th>Actions</th></tr></thead><tbody id="docs"></tbody></table></div>
+<dialog id="info"><div id="info-body"></div><div class="row"><button class="btn secondary" id="info-close">Close</button></div></dialog>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/upload.js') }}"></script>{% endblock %}

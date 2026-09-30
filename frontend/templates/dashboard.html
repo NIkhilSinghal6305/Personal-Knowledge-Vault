@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row between"><h1>Welcome back, {{ g.user['name'] }}</h1><a class="btn" href="/chat">Ask your knowledge</a></div>
+<h2>Knowledge Overview</h2>
+<div class="stats">
+  <div class="stat"><b id="s-documents">–</b>Documents</div>
+  <div class="stat"><b id="s-chunks">–</b>Chunks</div>
+  <div class="stat"><b id="s-conversations">–</b>Conversations</div>
+</div>
+<h2>Recent Documents</h2>
+<div class="table-wrap"><table><thead><tr><th>Document name</th><th>Type</th><th>Uploaded</th><th>Status</th></tr></thead><tbody id="recent-docs"></tbody></table></div>
+<h2>Recent Conversations</h2>
+<div class="table-wrap"><table><thead><tr><th>Question</th><th>Date</th><th></th></tr></thead><tbody id="recent-convs"></tbody></table></div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>{% endblock %}

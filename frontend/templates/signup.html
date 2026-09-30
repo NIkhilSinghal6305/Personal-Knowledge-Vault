@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+<h1>PERSONAL KNOWLEDGE VAULT</h1>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form method="post">
+  <label>Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label>
+  <label>Password<input type="password" name="password" minlength="8" required></label>
+  <button class="btn" type="submit">Sign up</button>
+</form>
+<p class="muted">Have an account? <a href="/login">Log in</a></p>
+{% endblock %}
